@@ -39,27 +39,31 @@ def to_usd(my_price):
 
 # TODO: write some Python code here to produce the desired output
 
+while True:
 
-# ask for user input
+    # ask for user input
 
-product_id = input("Please input a product identifier:")
-print(product_id) #>9
-print(type(product_id)) #>str
+    product_id = input("Please input a product identifier:")
+    print(product_id) #>9
+    print(type(product_id)) #>str
+    
+    if product_id == "DONE":
+        break
 
-#look up corresponding products
+    #look up corresponding products
 
-#print the product that has an id attribite to "9"
+    #print the product that has an id attribite to "9"
 
-matching_products = []
-for x in products:
-    if str(x["id"]) == str(product_id):
-    #this is a match
-        matching_products.append(x)
-print(matching_products)
-print(len(matching_products))
-print(type(matching_products))
+    matching_products = []
+    for x in products:
+        if str(x["id"]) == str(product_id):
+        #this is a match
+            matching_products.append(x)
+    #print(matching_products)
+    #print(len(matching_products))
+    #print(type(matching_products))
 
-#print the name of the matching product
+    #print the name of the matching product
 
-matching_product = matching_products[0]
-print(matching_product["name"], matching_product["price"])
+    matching_product = matching_products[0]
+    print(matching_product["name"], matching_product["price"])
