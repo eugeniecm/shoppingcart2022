@@ -1,4 +1,5 @@
 # shopping_cart.py
+from datetime import datetime
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -40,42 +41,48 @@ def to_usd(my_price):
 # TODO: write some Python code here to produce the desired output
 #input
 
-import datetime import datetime
+
 
 total_price = 0 
 selected_ids = []
+selected_products = []
 
 while True:
-    selected_id = input("Please input a product identifier:")
+    selected_id = input("Please input a product identifier, or 'DONE' if there are no more items:")
     if selected_id == "DONE":
         break
     else:
-        selected_ids.append(selected_ids)
+        #selected_ids.append(selected_id)
 
-    for selected_id in selected_ids:
-        matching_products = [p for p in products if str(p["id"])] == str(selected_id)
+    #for selected_id in selected_ids:
+        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
         matching_product = matching_products[0]
+        selected_products.append(matching_product)
         #there is a problem when i run, apparently the line above is "bool" object not subscriptable
         total_price = total_price + matching_product["price"]
-    
+
+#print(selected_products)
+
 print("-------------------------")
 #print grocery store's name and website
 print("TRADER JOE'S")
 print("WWW.TRADER-JOES.COM")
 print("-------------------------")
 #print(checkout date and time)
-dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+dt_string = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 print("CHECKOUT AT: " + dt_string)
 print("-------------------------")
 #print selected products in a list format
 print("SELECTED PRODUCTS: ")
-for checkout in selected_ids:
-    print(f'+ {matching_product["name"]} ({to_usd(str(matching_product["price"]))})')
+for checkout in selected_products:
+    #print(checkout) 
+    #print(f'+ {checkout["name"]} ({to_usd(str(checkout["price"]))})')
+    print(f"+ {checkout['name']} ({to_usd(checkout['price'])})")
 print("-------------------------")
 #print subtotal price
-print("SUBTOTAL: " + to_usd(str(total_price))) 
-taxes = total_price * 8.75%
-print("TAX: " taxes)
+print("SUBTOTAL: " + to_usd(total_price)) 
+taxes = total_price * 0.0875
+print("TAX: " + to_usd(taxes))
 total = taxes + total_price
 print("TOTAL: " + to_usd(total))
 print("-------------------------")
@@ -84,8 +91,6 @@ print("THANKS, SEE YOU AGAIN SOON!")
 
 #print("TOTAL PRICE: " + str(total_price)) #change to USD!!!
 #print("SELECTED PRODUCTS: " + matching_product["name"] + " " + str(matching_product["price"]))
-
-
 
 #for x in products:
         #if str(x["id"]) == str(product_id):
