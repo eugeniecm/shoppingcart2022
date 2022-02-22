@@ -77,11 +77,13 @@ print("SELECTED PRODUCTS: ")
 for checkout in selected_products:
     #print(checkout) 
     #print(f'+ {checkout["name"]} ({to_usd(str(checkout["price"]))})')
-    print(f"+ {checkout['name']} ({to_usd(checkout['price'])})")
+    print(f"... {checkout['name']} ({to_usd(checkout['price'])})")
 print("-------------------------")
 #print subtotal price
 print("SUBTOTAL: " + to_usd(total_price)) 
-taxes = total_price * 0.0875
+import os
+TAX_RATE = float(os.getenv("TAX_RATE", default="=0.0875"))
+taxes = total_price * TAX_RATE
 print("TAX: " + to_usd(taxes))
 total = taxes + total_price
 print("TOTAL: " + to_usd(total))
