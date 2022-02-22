@@ -82,7 +82,7 @@ print("-------------------------")
 #print subtotal price
 print("SUBTOTAL: " + to_usd(total_price)) 
 import os
-TAX_RATE = float(os.getenv("TAX_RATE", default="=0.0875"))
+TAX_RATE = float(os.getenv("TAX_RATE", default="0.0875"))
 taxes = total_price * TAX_RATE
 print("TAX: " + to_usd(taxes))
 total = taxes + total_price
